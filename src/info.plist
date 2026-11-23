@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.deanishe.alfred-network-location</string>
+	<string>com.connorb.alfred-network-location</string>
 	<key>category</key>
 	<string>System</string>
 	<key>connections</key>
@@ -39,14 +39,14 @@
 				<key>modifiers</key>
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
-				<string>Open Network Preferences</string>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Dean Jackson</string>
+	<string>Connor Brown</string>
 	<key>description</key>
 	<string>Change your network location</string>
 	<key>disabled</key>
@@ -80,7 +80,7 @@
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
-				<false/>
+				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttrimmode</key>
@@ -102,7 +102,7 @@
 				<key>runningsubtext</key>
 				<string>Loading locations…</string>
 				<key>script</key>
-				<string>python netloc.py list "$1"</string>
+				<string>/usr/bin/osascript -l JavaScript netloc.js</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -131,7 +131,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>/usr/bin/python netloc.py set "$1"</string>
+				<string>/usr/sbin/scselect "$1" &gt; /dev/null &amp;&amp; printf '%s' "$location"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -154,16 +154,13 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>tell application "System Preferences"
-    reveal pane "com.apple.preference.network"
-	activate
-end tell</string>
+				<string>open "x-apple.systempreferences:com.apple.preference.network"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>6</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -207,8 +204,8 @@ end tell</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>2.0</string>
+	<string>3.0</string>
 	<key>webaddress</key>
-	<string>https://github.com/deanishe/alfred-network-location</string>
+	<string>https://github.com/ConnorB/alfred-network-location</string>
 </dict>
 </plist>
